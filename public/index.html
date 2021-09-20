@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" id="code" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>888 Overlay</title>
+    <meta content="888 InnerCircle Overlay" property="og:title" />
+    <meta
+      content="https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png"
+      property="og:image"
+    />
+    <meta content="#75dce2" data-react-helmet="true" name="theme-color" />
+    <meta property="og:description" content="#888innercircle" />
+
+    <link
+      rel="icon"
+      href="https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="main">
+      <label for="img-input" class="button"> Browse Image </label>
+
+      <button id="download-button" class="button">Download</button>
+
+      <input
+        type="file"
+        id="img-input"
+        style="display: none"
+        accept="image/*"
+      />
+    </div>
+
+    <canvas width="512" height="512" id="canvas"></canvas>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
