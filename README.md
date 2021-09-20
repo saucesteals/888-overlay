@@ -9,5 +9,5 @@
 </h3>
 
 <h3 align="center" >
-<a href="hhttps://opensea.io/assets/0x715565baf69afcbbe88f56d46f1c9fe2df828705/1">Maalavidaa </a>
+<a href="https://opensea.io/assets/0x715565baf69afcbbe88f56d46f1c9fe2df828705/1">Maalavidaa</a>
 </h3>
