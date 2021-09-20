@@ -15,13 +15,16 @@ circle.src = "https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png";
 
 // Handle new image selection
 fileInput.onchange = function (e) {
+  console.log("Received", e.target.files.join(", "), "from file input");
   selectedFile = e.target.files[0];
   const reader = new FileReader();
+
   reader.readAsDataURL(selectedFile);
   reader.onloadend = (event) => {
     const image = new Image();
     image.src = event.target.result;
     image.onload = function () {
+      console.log("Building canvas...");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const width = (canvas.width = image.width);
       const height = (canvas.height = image.height);
@@ -32,21 +35,24 @@ fileInput.onchange = function (e) {
       ctx.arc(width / 2, height / 2, height / 2, 0, Math.PI * 2);
       ctx.closePath();
       ctx.fill();
+      console.log("Finished building canvas");
     };
   };
 };
 
 // Handle download
 downloadButton.onclick = function () {
-  if (!selectedFile) return;
+  console.log("Attemping to download canvas");
+  if (!selectedFile) return console.log("No selected image!");
 
   const linkElement = document.createElement("a");
 
   const fileName =
     selectedFile.name.substring(0, selectedFile.name.lastIndexOf(".")) + ".png";
 
-  console.log(fileName);
+  console.log("Preparing", fileName, "for download");
   linkElement.download = fileName;
   linkElement.href = canvas.toDataURL("image/png");
+
   linkElement.click();
 };
