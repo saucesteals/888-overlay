@@ -13,6 +13,8 @@ body {
   align-items: center;
   overflow-x: hidden;
   text-align: center;
+  width: full;
+  height: full;
 }
 
 a {
@@ -39,10 +41,21 @@ a {
   display: block;
 }
 
-footer {
+.text {
   color: white;
-  width: 100%;
-  padding-top: 50px;
+  text-align: justify;
   text-align: center;
   font-size: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+
+footer {
+  padding-top: 50px;
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  text-align: center;
 }

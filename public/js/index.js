@@ -2,6 +2,7 @@
 const fileInput = document.getElementById("img-input");
 const canvas = document.getElementById("canvas");
 const downloadButton = document.getElementById("download-button");
+const root = document.getRootNode();
 
 // Get canvas ready
 const ctx = canvas.getContext("2d");
@@ -13,13 +14,10 @@ const circle = new Image();
 circle.crossOrigin = "anonymous";
 circle.src = "https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png";
 
-// Handle new image selection
-fileInput.onchange = function (e) {
-  console.log("Received", e.target.files[0], "from file input");
-  selectedFile = e.target.files[0];
+const handleNewFile = (file) => {
   const reader = new FileReader();
 
-  reader.readAsDataURL(selectedFile);
+  reader.readAsDataURL(file);
   reader.onloadend = (event) => {
     const image = new Image();
     image.src = event.target.result;
@@ -36,9 +34,42 @@ fileInput.onchange = function (e) {
       ctx.closePath();
       ctx.fill();
       console.log("Finished building canvas");
+      selectedFile = file;
     };
   };
 };
+
+// Handle new image selection
+fileInput.onchange = function (e) {
+  console.log("Received", e.target.files[0], "from file input");
+  handleNewFile(e.target.files[0]);
+};
+
+// Handle drag-and-drop
+const preventDefault = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
+root.addEventListener("dragenter", preventDefault, false);
+root.addEventListener("dragleave", preventDefault, false);
+root.addEventListener("dragover", preventDefault, false);
+root.addEventListener("drop", preventDefault, false);
+
+root.addEventListener(
+  "drop",
+  (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(e);
+    const file = e.dataTransfer?.files[0];
+
+    if (file) {
+      handleNewFile(file);
+    }
+  },
+  false
+);
 
 // Handle download
 downloadButton.onclick = function () {
