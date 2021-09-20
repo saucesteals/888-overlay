@@ -40,7 +40,7 @@ const handleNewFile = (file) => {
 };
 
 // Handle new image selection
-fileInput.onclick = function (e) {
+fileInput.onchange = function (e) {
 	console.log("Received", e.target.files[0], "from file input");
 	handleNewFile(e.target.files[0]);
 };
