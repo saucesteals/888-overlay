@@ -15,7 +15,7 @@ circle.src = "https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png";
 
 // Handle new image selection
 fileInput.onchange = function (e) {
-  console.log("Received", e.target.files.join(", "), "from file input");
+  console.log("Received", e.target.files[0], "from file input");
   selectedFile = e.target.files[0];
   const reader = new FileReader();
 
