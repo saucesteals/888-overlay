@@ -59,9 +59,6 @@ root.addEventListener("drop", preventDefault, false);
 root.addEventListener(
   "drop",
   (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log(e);
     const file = e.dataTransfer?.files[0];
 
     if (file) {
