@@ -10,7 +10,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 // Images
 let selectedFile = null;
-const circle = new Image();
+const circle = new Image(3000, 3000);
 circle.crossOrigin = "anonymous";
 circle.src = "https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png";
 
