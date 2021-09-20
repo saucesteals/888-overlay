@@ -10,9 +10,9 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 // Images
 let selectedFile = null;
-const circle = new Image(3000, 3000);
+const circle = new Image(1080, 1080);
 circle.crossOrigin = "anonymous";
-circle.src = "https://i.ibb.co/jbZLzrn/888-Inner-Circle-Maalavidaa.png";
+circle.src = "https://i.ibb.co/gT3NyL3/888-Inner-Circle-Maalavidaa-1.png";
 
 const handleNewFile = (file) => {
   const reader = new FileReader();
@@ -24,8 +24,8 @@ const handleNewFile = (file) => {
     image.onload = function () {
       console.log("Building canvas...");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const width = (canvas.width = image.width);
-      const height = (canvas.height = image.height);
+      const width = (canvas.width = Math.min(image.width, circle.width));
+      const height = (canvas.height = Math.min(image.height, circle.height));
       ctx.drawImage(image, 0, 0, width, height);
       ctx.drawImage(circle, 0, 0, width, height);
       ctx.globalCompositeOperation = "destination-in";
