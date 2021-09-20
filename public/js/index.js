@@ -24,8 +24,8 @@ const handleNewFile = (file) => {
     image.onload = function () {
       console.log("Building canvas...");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const width = (canvas.width = Math.min(circle.width, image.width));
-      const height = (canvas.height = Math.min(circle.height, image.height));
+      const width = (canvas.width = image.width);
+      const height = (canvas.height = image.height);
       ctx.drawImage(image, 0, 0, width, height);
       ctx.drawImage(circle, 0, 0, width, height);
       ctx.globalCompositeOperation = "destination-in";
